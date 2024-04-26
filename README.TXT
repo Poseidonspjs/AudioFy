@@ -5,27 +5,27 @@ MAC/Linux:
 Homebrew
 Follow instructions and install homebrew at https://brew.sh/
 Then type 
-```
+
 brew install yt-dlp
-```
+
 into a terminal
 After it installs, type 
-```
+
 brew install ffmpeg
-```
+
 
 Make sure to have python installed, then type in
-```
+
 pip install moviepy
-```
+
 
 Windows:
 Run the following commands
-```
+
 pip install yt-dlp
 pip install moviepy
 pip install ffmpeg
-```
+
 
 
 Enter the URLs for the youtube videos you want your song to come from in the songs.txt file
