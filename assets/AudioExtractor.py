@@ -1,35 +1,40 @@
 #imports
-from moviepy.editor import *
-import subprocess
 import os
 
-#AudioFy
+
 #Functions
 def downloadVid(file):
-    os.system(f"yt-dlp -o '%(id)s.%(ext)s' -P /Videos -a {file}")
+    os.system(f"yt-dlp -o '%(id)s.%(ext)s' -P {videoLocation} -x -a {file}")
 
+#ENTER LOCATIONS HERE
+location = ''
+videoLocation = ''
 
 #get User Input for URL
-file = input("File name: ")
+print("Downloading files...")
 
-downloadVid(file)
+#Run func
+downloadVid('songs.txt')
 
-#reads output location for songs
-with open("CONF.txt") as conf:
-    location = conf.readline()
 
-#generate audio file
 
+#convert OPUS to mp3
+
+print('Converting to audio')
 for video in os.listdir('Videos'):
-    clip = AudioFileClip(f'{video}.webm')
+    if(video == '.DS_Store'):
+        print('Skipping DS file') #PESTY FILE
+    else:
+        print(video)
+        print()
+        name = input(f'name of mp3 file for {video}: ')
+        print()
+        print(f'ffmpeg -i {videoLocation}/{video} -c:a libmp3lame {location}/{name}.mp3')
+        print()
+        os.system(f'ffmpeg -i {videoLocation}/{video} -c:a libmp3lame {location}/{name}.mp3')
 
-    name = input("Name of mp3 file: ")
-
-    #create file in dir
-    clip.write_audiofile(f'({location}/{name}.mp3')
-
-    #removes video
-    if os.path.exists(f"/Videos/{video}.webm"):
-        os.remove(f"/Videos/{video}.webm")
+    #CLEANUP
+    if os.path.exists(f"{videoLocation}/{video}"):
+        os.remove(f"{videoLocation}/{video}")
     else:
         print("File does not exist")
