@@ -1,4 +1,4 @@
-In order to use the AudioExtractor, a few packages must be installed
+In order to use AudioFy, a few packages must be installed
 
 1: yt-dlp - Used to download the video from Youtube
 MAC/Linux:
