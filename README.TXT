@@ -14,22 +14,19 @@ After it installs, type
 brew install ffmpeg
 
 
-Make sure to have python installed, then type in
-
-pip install moviepy
+Make sure to have python installed
 
 
 Windows:
 Run the following commands
 
 pip install yt-dlp
-pip install moviepy
 pip install ffmpeg
 
 
 
 Enter the URLs for the youtube videos you want your song to come from in the songs.txt file
-Specify the locations of where you want your songs to end up in CONF.txt, located in the assets folder
+Specify the locations of where you want your songs to end up and the location of the videos folder using their ABSOLUTE paths inside the .py file, under the comment specifiying their locations, located in the assets folder
 EX: /Users/[username]/Desktop/songs
 
 Run and enjoy
